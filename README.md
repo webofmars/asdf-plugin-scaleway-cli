@@ -57,3 +57,5 @@ Contributions of any kind welcome! See the [contributing guide](contributing.md)
 # License
 
 See [LICENSE](LICENSE) © [Frederic Leger](https://github.com/fredleger/)
+
+# to run actions
