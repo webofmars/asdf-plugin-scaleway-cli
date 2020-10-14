@@ -1,6 +1,6 @@
 <div align="center">
 
-# asdf-scaleway-cli ![Build](https://github.com/fredleger/asdf-scaleway-cli/workflows/Build/badge.svg) ![Lint](https://github.com/fredleger/asdf-scaleway-cli/workflows/Lint/badge.svg)
+# asdf-scaleway-cli ![Build](https://github.com/webofmars/asdf-scaleway-cli/workflows/Build/badge.svg) ![Lint](https://github.com/webofmars/asdf-scaleway-cli/workflows/Lint/badge.svg)
 
 [scaleway-cli](https://github.com/scaleway/scaleway-cli) plugin for the [asdf version manager](https://asdf-vm.com).
 
@@ -52,10 +52,10 @@ install & manage versions.
 
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
-[Thanks goes to these contributors](https://github.com/fredleger/asdf-scaleway-cli/graphs/contributors)!
+[Thanks goes to these contributors](https://github.com/webofmars/asdf-scaleway-cli/graphs/contributors)!
 
 # License
 
-See [LICENSE](LICENSE) © [Frederic Leger](https://github.com/fredleger/)
+See [LICENSE](LICENSE) © [Frederic Leger](https://github.com/webofmars/)
 
 # to run actions
