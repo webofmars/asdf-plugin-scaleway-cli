@@ -65,7 +65,7 @@ install_version() {
 
     # TODO: Asert scaleway-cli executable exists.
     local tool_cmd
-    tool_cmd="$(echo "scw version" | cut -d' ' -f2-)"
+    tool_cmd="$(echo "scw version" | cut -d' ' -f1)"
     test -x "$install_path/bin/$tool_cmd" || fail "Expected $install_path/bin/$tool_cmd to be executable."
 
     echo "scaleway-cli $version installation was successful!"
