@@ -61,6 +61,7 @@ install_version() {
     mkdir -p "$install_path"
     download_release "$version" "$release_file"
     tar -xzf "$release_file" -C "$install_path" --strip-components=1 || fail "Could not extract $release_file"
+    chmod a+x "$install_path/bin/scw"
     rm "$release_file"
 
     # TODO: Asert scaleway-cli executable exists.
