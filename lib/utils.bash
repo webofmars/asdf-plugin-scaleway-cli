@@ -45,12 +45,25 @@ download_release() {
   version_slug="2-2-0"
 
   case "$OSTYPE" in
-    solaris*) target_os="solaris" ;;
-    darwin*)  target_os="darwin" ;;
-    linux*)   target_os="linux" ;;
-    bsd*)     target_os="bsd" ;;
-    msys*)    target_os="windows"; target_ext=".exe" ;;
-    *)        echo "unknown: $OSTYPE" ;;
+    solaris*)
+      target_os="solaris"
+      ;;
+    darwin*)
+      target_os="darwin"
+      ;;
+    linux*)
+      target_os="linux"
+      ;;
+    bsd*)
+      target_os="bsd"
+      ;;
+    msys*)
+      target_os="windows"
+      target_ext=".exe"
+      ;;
+    *)
+      echo "unknown: $OSTYPE"
+      ;;
   esac
 
   target_arch="$(uname -m)"
