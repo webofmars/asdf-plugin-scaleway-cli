@@ -67,14 +67,19 @@ download_release() {
   esac
 
   target_arch="$(uname -m)"
-  version_slug="$(echo ${version} | tr '.' '-' | cut -d v -f 2)"
-
+  version_slug_1="$(echo ${version} | tr '.' '-' | cut -d v -f 2)"
+  version_slug_2="$(echo ${version} | cut -d v -f 2)"
+  
   # exemple https://github.com/scaleway/scaleway-cli/releases/download/v2.2.0/scw-2-2-0-darwin-x86_64
+  # exemple 2 https://github.com/scaleway/scaleway-cli/releases/download/v2.2.1/scw-2.2.1-linux-x86_64
   # exemple scw-2-2-0-darwin-x86_64
-  url="$GH_REPO/releases/download/v${version}/scw-${version_slug}-${target_os}-${target_arch}${target_ext}"
-
+  url1="$GH_REPO/releases/download/v${version}/scw-${version_slug}-${target_os}-${target_arch}${target_ext}"
+  url2="$GH_REPO/releases/download/v${version}/scw-${version_slug_2}-${target_os}-${target_arch}${target_ext}"
+  
   echo "* Downloading scaleway-cli release $version..."
-  curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
+  curl "${curl_opts[@]}" -o "$filename" -C - "$url1" || \
+  curl "${curl_opts[@]}" -o "$filename" -C - "$url2" || \
+    fail "Could not download $url"
 }
 
 install_version() {
