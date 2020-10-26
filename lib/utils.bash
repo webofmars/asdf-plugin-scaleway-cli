@@ -78,9 +78,9 @@ download_release() {
   url2="$GH_REPO/releases/download/v${version}/scw-${version_slug_2}-${target_os}-${target_arch}${target_ext}"
 
   echo "* Downloading scaleway-cli release $version..."
-  curl "${curl_opts[@]}" -o "$filename" -C - "$url1" ||
-    curl "${curl_opts[@]}" -o "$filename" -C - "$url2" ||
-    fail "Could not download $url"
+  curl -fs "${curl_opts[@]}" -o "$filename" -C - "$url1" ||
+    curl -fs "${curl_opts[@]}" -o "$filename" -C - "$url2" ||
+    fail "Could not download $url1 or $url2"
 }
 
 install_version() {
