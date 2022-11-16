@@ -32,6 +32,7 @@ list_all_versions() {
   list_github_tags
 }
 
+
 download_release() {
   local version filename url
   version="$1"
@@ -74,16 +75,19 @@ download_release() {
   # exemple https://github.com/scaleway/scaleway-cli/releases/download/v2.2.0/scw-2-2-0-darwin-x86_64
   # exemple 2 https://github.com/scaleway/scaleway-cli/releases/download/v2.2.1/scw-2.2.1-linux-x86_64
   # exemple 3 https://github.com/scaleway/scaleway-cli/releases/download/v2.5.1/scaleway-cli_2.5.1_darwin_arm64
+  # exemple 4 https://github.com/scaleway/scaleway-cli/releases/download/v2.5.1/scaleway-cli_2.5.1_darwin_amd64
   # exemple scw-2-2-0-darwin-x86_64
   url1="$GH_REPO/releases/download/v${version}/scw-${version_slug_1}-${target_os}-${target_arch}${target_ext}"
   url2="$GH_REPO/releases/download/v${version}/scw-${version_slug_2}-${target_os}-${target_arch}${target_ext}"
   url3="$GH_REPO/releases/download/v${version}/scaleway-cli_${version_slug_2}_${target_os}_${target_arch}${target_ext}"
+  url4="$GH_REPO/releases/download/v${version}/scaleway-cli_${version_slug_2}_${target_os}_amd64${target_ext}"
 
   echo "* Downloading scaleway-cli release $version..."
   curl -fs "${curl_opts[@]}" -o "$filename" -C - "$url1" ||
     curl -fs "${curl_opts[@]}" -o "$filename" -C - "$url2" ||
     curl -fs "${curl_opts[@]}" -o "$filename" -C - "$url3" ||
-    fail "Could not download $url1 or $url2" or $url3
+    curl -fs "${curl_opts[@]}" -o "$filename" -C - "$url4" ||
+    fail "Could not download $url1 or $url2 or $url3 or $url4"
 }
 
 install_version() {
